@@ -1,0 +1,158 @@
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 255 255 255; /* Sky White */
+    --foreground: 45 55 72; /* Elegant dark gray */
+    --card: 255 255 255;
+    --card-foreground: 45 55 72;
+    --popover: 255 255 255;
+    --popover-foreground: 45 55 72;
+    --primary: 160 210 235; /* Soft Blue */
+    --primary-foreground: 26 32 44;
+    --secondary: 255 224 102; /* Sunshine Yellow */
+    --secondary-foreground: 26 32 44;
+    --muted: 248 250 252;
+    --muted-foreground: 100 116 139;
+    --accent: 255 111 97; /* Coral Pink */
+    --accent-foreground: 255 255 255;
+    --destructive: 239 68 68;
+    --destructive-foreground: 248 250 252;
+    --border: 226 232 240;
+    --input: 226 232 240;
+    --ring: 160 210 235;
+    --radius: 0.75rem;
+  }
+
+  .dark {
+    --background: 15 23 42;
+    --foreground: 248 250 252;
+    --card: 30 41 59;
+    --card-foreground: 248 250 252;
+    --popover: 30 41 59;
+    --popover-foreground: 248 250 252;
+    --primary: 160 210 235;
+    --primary-foreground: 15 23 42;
+    --secondary: 255 224 102;
+    --secondary-foreground: 15 23 42;
+    --muted: 51 65 85;
+    --muted-foreground: 148 163 184;
+    --accent: 255 111 97;
+    --accent-foreground: 248 250 252;
+    --destructive: 239 68 68;
+    --destructive-foreground: 248 250 252;
+    --border: 51 65 85;
+    --input: 51 65 85;
+    --ring: 160 210 235;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-gradient-to-br from-sky-50 via-blue-50 to-purple-50 text-foreground min-h-screen;
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+}
+
+@layer components {
+  .elegant-card {
+    @apply bg-white/80 backdrop-blur-sm border border-white/20 shadow-xl shadow-blue-100/50 rounded-2xl;
+  }
+  
+  .elegant-button {
+    @apply bg-gradient-to-r from-blue-400 to-blue-500 hover:from-blue-500 hover:to-blue-600 text-white font-medium px-6 py-3 rounded-xl shadow-lg shadow-blue-200/50 hover:shadow-xl hover:shadow-blue-300/60 transition-all duration-300 transform hover:-translate-y-1;
+  }
+  
+  .elegant-button-secondary {
+    @apply bg-gradient-to-r from-yellow-400 to-orange-400 hover:from-yellow-500 hover:to-orange-500 text-gray-800 font-medium px-6 py-3 rounded-xl shadow-lg shadow-yellow-200/50 hover:shadow-xl hover:shadow-yellow-300/60 transition-all duration-300 transform hover:-translate-y-1;
+  }
+  
+  .elegant-button-accent {
+    @apply bg-gradient-to-r from-pink-400 to-coral-400 hover:from-pink-500 hover:to-coral-500 text-white font-medium px-6 py-3 rounded-xl shadow-lg shadow-pink-200/50 hover:shadow-xl hover:shadow-pink-300/60 transition-all duration-300 transform hover:-translate-y-1;
+  }
+  
+  .elegant-input {
+    @apply bg-white/60 backdrop-blur-sm border-2 border-blue-200/50 focus:border-blue-400 rounded-xl px-4 py-3 shadow-inner shadow-blue-100/30 focus:shadow-lg focus:shadow-blue-200/40 transition-all duration-300;
+  }
+  
+  .elegant-nav {
+    @apply bg-white/90 backdrop-blur-md border-b border-white/20 shadow-lg shadow-blue-100/30;
+  }
+  
+  .elegant-sidebar {
+    @apply bg-gradient-to-b from-white/95 to-blue-50/95 backdrop-blur-lg border-r border-white/30 shadow-2xl shadow-blue-100/40;
+  }
+  
+  .progress-elegant {
+    @apply bg-gradient-to-r from-green-400 to-emerald-500 shadow-lg shadow-green-200/50 rounded-full;
+  }
+  
+  .text-elegant-primary {
+    @apply bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent font-bold;
+  }
+  
+  .text-elegant-secondary {
+    @apply text-gray-700 font-medium;
+  }
+  
+  .hover-elegant {
+    @apply hover:bg-gradient-to-r hover:from-blue-50 hover:to-purple-50 hover:shadow-lg hover:shadow-blue-100/50 transition-all duration-300 rounded-xl;
+  }
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-blue-50;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-gradient-to-b from-blue-300 to-blue-400 rounded-full;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  @apply from-blue-400 to-blue-500;
+}
+
+/* Smooth animations */
+* {
+  scroll-behavior: smooth;
+}
+
+/* Glass morphism effects */
+.glass-effect {
+  background: rgba(255, 255, 255, 0.25);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+}
+
+/* Floating animations */
+@keyframes float-gentle {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-8px); }
+}
+
+.float-gentle {
+  animation: float-gentle 4s ease-in-out infinite;
+}
+
+/* Shimmer effect for loading states */
+@keyframes shimmer-elegant {
+  0% { background-position: -468px 0; }
+  100% { background-position: 468px 0; }
+}
+
+.shimmer-elegant {
+  background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+  background-size: 400% 100%;
+  animation: shimmer-elegant 1.5s infinite;
+}
